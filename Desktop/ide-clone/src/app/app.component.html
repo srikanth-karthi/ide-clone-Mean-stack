@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href=""> Online Compiler</a>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ms-auto">
+
+      <li class="nav-item"> <button (click)="run()" class="btn btn-success" [disabled]="i"> Run </button></li>
+
+      <li class="nav-item"> <button (click)="clear()" class="btn btn-danger"> Clear </button>
+
+
+      <li class="nav-item"><button (click)="download()" class="btn btn-primary"><i
+            class="bi bi-cloud-arrow-down"></i></button></li>
+
+      <li class="nav-item">
+       
+          <label for="language">Language : </label> 
+      <select class=" " id="language" name="language" [(ngModel)]="mode"
+            (ngModelChange)="changeMode()">
+            <option value="javascript">Javascript</option>
+            <option value="text/typescript">TypeScript</option>
+            <option value="text/x-java">Java</option>
+          </select>
+
+            
+    </ul>
+  </div>
+</nav>
+
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="ngx-codemirror mb-2">
+    <ngx-codemirror [options]="options" [(ngModel)]="code" [disabled]="readOnly" [autoFocus]="true"></ngx-codemirror>
+  </div>
+</div>
+
+<div class="output-container">
+  <textarea name="output" id="output" [(ngModel)]="output" cols="210" rows="12" readonly></textarea>
+  <div *ngIf="i == true" class="spinner-overlay">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+</div>
