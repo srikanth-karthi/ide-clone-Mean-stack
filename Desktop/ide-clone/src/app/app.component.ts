@@ -3,9 +3,9 @@ import { ToastrService } from 'ngx-toastr';
 import { CompilerService } from './compiler.service';
 
 const defaults = {
-  javascript: `print('Hello World');`,
+  javascript: `console.log("Hello World");`,
   'text/typescript': `
-  print('Hello World');
+  console.log("Hello World");
   `,
   'text/x-java': `class Main
 {
